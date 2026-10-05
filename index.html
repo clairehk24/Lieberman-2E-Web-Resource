@@ -1,356 +1,390 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Implementation resources for Paraeducators in Physical Education, Second Edition.">
-  <title>Paraeducators in Physical Education SECOND EDITION, A Training Guide to Roles and Responsibilities</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23172f59'/%3E%3Cpath d='M18 14h20c10 0 16 5 16 14S48 42 38 42H28v10H18V14Zm10 9v10h9c4 0 7-1 7-5s-3-5-7-5h-9Z' fill='%23fff'/%3E%3Crect x='8' y='49' width='10' height='7' fill='%23ffd400'/%3E%3C/svg%3E">
-  <style>
-    :root {
-      --navy: #172f59;
-      --navy-deep: #0d2244;
-      --sky: #dff4fb;
-      --cyan: #35b8df;
-      --red: #9d1d20;
-      --yellow: #ffd400;
-      --ink: #1f2b3c;
-      --muted: #55657a;
-      --line: #bdbec0;
-      --paper: #ffffff;
-      --soft-gray: #eeeeef;
-      --shadow: 0 24px 60px rgba(23, 47, 89, 0.16);
-    }
-
-    * { box-sizing: border-box; }
-
-    html { color-scheme: light; }
-
-    body {
-      margin: 0;
-      min-width: 320px;
-      min-height: 100vh;
-      background:
-        linear-gradient(170deg, rgba(255, 255, 255, 0.74) 0 31%, transparent 31.1%),
-        var(--sky);
-      color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0 0 auto;
-      height: 10px;
-      background: linear-gradient(90deg, var(--cyan) 0 66%, var(--yellow) 66% 84%, var(--red) 84%);
-      z-index: 10;
-    }
-
-    a { color: inherit; }
-
-    .page-shell {
-      width: min(1120px, calc(100% - 40px));
-      min-height: 100vh;
-      margin: 0 auto;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      padding-top: 10px;
-    }
-
-    main {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.65fr);
-      gap: clamp(34px, 6vw, 76px);
-      align-items: center;
-      padding: clamp(64px, 10vh, 108px) 0 72px;
-    }
-
-    main > section { min-width: 0; }
-
-    .edition {
-      width: min(100%, 760px);
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-family: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
-      font-size: 0.92rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      max-width: 760px;
-      color: var(--navy);
-      font-family: Haettenschweiler, Impact, "Arial Narrow", "Franklin Gothic Condensed", sans-serif;
-      font-size: clamp(3.25rem, 7.2vw, 6.75rem);
-      font-stretch: condensed;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      line-height: 1;
-      text-shadow: 0 2px 0 rgba(13, 34, 68, 0.12);
-    }
-
-    .title-line {
-      display: block;
-      white-space: nowrap;
-    }
-
-    .title-line--primary {
-      line-height: 0.88;
-    }
-
-    .title-line--secondary {
-      margin-top: 0.12em;
-      font-size: 0.66em;
-      letter-spacing: -0.015em;
-      line-height: 0.94;
-    }
-
-    .subtitle {
-      display: block;
-      max-width: 720px;
-      margin-top: 24px;
-      color: var(--red);
-      font-family: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
-      font-size: clamp(1.45rem, 3vw, 2.45rem);
-      font-style: italic;
-      font-weight: 800;
-      letter-spacing: -0.015em;
-      line-height: 1.05;
-      white-space: normal;
-    }
-
-    .intro {
-      max-width: 750px;
-      margin: 34px 0 0;
-      padding-left: 22px;
-      border-left: 5px solid var(--yellow);
-      color: #33445a;
-      font-size: clamp(1rem, 1.4vw, 1.15rem);
-      line-height: 1.75;
-    }
-
-    .download-panel {
-      position: relative;
-      overflow: hidden;
-      padding: 18px;
-      border: 1px solid rgba(23, 47, 89, 0.14);
-      border-radius: 0 24px 24px 24px;
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: var(--shadow);
-    }
-
-    .download-panel::before {
-      content: "Resources";
-      display: block;
-      margin: -18px -18px 16px;
-      padding: 18px 22px 16px;
-      background: var(--navy);
-      color: white;
-      font-family: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .download-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .download-card {
-      width: 100%;
-      min-height: 94px;
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 14px;
-      align-items: center;
-      padding: 17px 18px;
-      border: 2px solid transparent;
-      border-radius: 10px;
-      background: var(--soft-gray);
-      color: var(--navy);
-      text-align: left;
-      text-decoration: none;
-      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-    }
-
-    a.download-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--cyan);
-      box-shadow: 0 10px 24px rgba(23, 47, 89, 0.12);
-    }
-
-    .download-card:focus-visible {
-      outline: 4px solid var(--yellow);
-      outline-offset: 3px;
-    }
-
-    .download-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--cyan);
-      color: var(--navy-deep);
-    }
-
-    .download-card:last-child .download-icon {
-      background: var(--yellow);
-    }
-
-    .download-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke: currentColor;
-    }
-
-    .download-title {
-      display: block;
-      font-size: 1rem;
-      font-weight: 800;
-      line-height: 1.25;
-    }
-
-    .download-meta {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.35;
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      padding: 26px 0 30px;
-      border-top: 1.5px solid var(--line);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .publisher-logo {
-      width: clamp(170px, 20vw, 230px);
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .copyright {
-      text-align: right;
-    }
-
-    .copyright a {
-      color: var(--navy);
-      font-weight: 800;
-      text-decoration: underline;
-      text-decoration-color: var(--cyan);
-      text-decoration-thickness: 3px;
-      text-underline-offset: 4px;
-    }
-
-    .copyright a:hover { color: var(--red); }
-
-    .copyright a:focus-visible {
-      outline: 3px solid var(--yellow);
-      outline-offset: 4px;
-    }
-
-    @media (max-width: 820px) {
-      main {
-        grid-template-columns: 1fr;
-        padding-top: 68px;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Implementation resources for Paraeducators in Physical Education, Second Edition." />
+    <title>Paraeducators in Physical Education SECOND EDITION, A Training Guide to Roles and Responsibilities</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23172f59'/%3E%3Cpath d='M18 14h20c10 0 16 5 16 14S48 42 38 42H28v10H18V14Zm10 9v10h9c4 0 7-1 7-5s-3-5-7-5h-9Z' fill='%23fff'/%3E%3Crect x='8' y='49' width='10' height='7' fill='%23ffd400'/%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        --navy: #172f59;
+        --navy-deep: #0d2244;
+        --sky: #dff4fb;
+        --cyan: #35b8df;
+        --red: #9d1d20;
+        --yellow: #ffd400;
+        --ink: #1f2b3c;
+        --muted: #55657a;
+        --line: #bdbec0;
+        --paper: #ffffff;
+        --soft-gray: #eeeeef;
+        --shadow: 0 24px 60px rgba(23, 47, 89, 0.16);
       }
 
-      .download-panel { max-width: 560px; }
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    @media (max-width: 560px) {
-      .page-shell { width: min(100% - 28px, 1120px); }
+      html {
+        color-scheme: light;
+      }
 
-      main { padding: 54px 0 50px; }
+      body {
+        margin: 0;
+        min-width: 320px;
+        min-height: 100vh;
+        background: linear-gradient(170deg, rgba(255, 255, 255, 0.74) 0 31%, transparent 31.1%), var(--sky);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
 
-      h1 { font-size: clamp(3rem, 16vw, 4.6rem); }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: 10px;
+        background: linear-gradient(90deg, var(--cyan) 0 66%, var(--yellow) 66% 84%, var(--red) 84%);
+        z-index: 10;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page-shell {
+        width: min(1120px, calc(100% - 40px));
+        min-height: 100vh;
+        margin: 0 auto;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        padding-top: 10px;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.65fr);
+        gap: clamp(34px, 6vw, 76px);
+        align-items: center;
+        padding: clamp(64px, 10vh, 108px) 0 72px;
+      }
+
+      main > section {
+        min-width: 0;
+      }
+
+      .edition {
+        width: min(100%, 760px);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-family: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
+        font-size: 0.92rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 760px;
+        color: var(--navy);
+        font-family: Haettenschweiler, Impact, "Arial Narrow", "Franklin Gothic Condensed", sans-serif;
+        font-size: clamp(3.25rem, 7.2vw, 6.75rem);
+        font-stretch: condensed;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        line-height: 1;
+        text-shadow: 0 2px 0 rgba(13, 34, 68, 0.12);
+      }
+
+      .title-line {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .title-line--primary {
+        line-height: 0.88;
+      }
+
+      .title-line--secondary {
+        margin-top: 0.12em;
+        font-size: 0.66em;
+        letter-spacing: -0.015em;
+        line-height: 0.94;
+      }
+
+      .subtitle {
+        display: block;
+        max-width: 720px;
+        margin-top: 24px;
+        color: var(--red);
+        font-family: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
+        font-size: clamp(1.45rem, 3vw, 2.45rem);
+        font-style: italic;
+        font-weight: 800;
+        letter-spacing: -0.015em;
+        line-height: 1.05;
+        white-space: normal;
+      }
 
       .intro {
-        margin-top: 28px;
-        padding-left: 16px;
+        max-width: 750px;
+        margin: 34px 0 0;
+        padding-left: 22px;
+        border-left: 5px solid var(--yellow);
+        color: #33445a;
+        font-size: clamp(1rem, 1.4vw, 1.15rem);
+        line-height: 1.75;
+      }
+
+      .download-panel {
+        position: relative;
+        overflow: hidden;
+        padding: 18px;
+        border: 1px solid rgba(23, 47, 89, 0.14);
+        border-radius: 0 24px 24px 24px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: var(--shadow);
+      }
+
+      .download-panel::before {
+        content: "Resources";
+        display: block;
+        margin: -18px -18px 16px;
+        padding: 18px 22px 16px;
+        background: var(--navy);
+        color: white;
+        font-family: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .download-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .download-card {
+        width: 100%;
+        min-height: 94px;
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 14px;
+        align-items: center;
+        padding: 17px 18px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        background: var(--soft-gray);
+        color: var(--navy);
+        text-align: left;
+        text-decoration: none;
+        transition:
+          transform 160ms ease,
+          border-color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      a.download-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--cyan);
+        box-shadow: 0 10px 24px rgba(23, 47, 89, 0.12);
+      }
+
+      .download-card:focus-visible {
+        outline: 4px solid var(--yellow);
+        outline-offset: 3px;
+      }
+
+      .download-icon {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--cyan);
+        color: var(--navy-deep);
+      }
+
+      .download-card:last-child .download-icon {
+        background: var(--yellow);
+      }
+
+      .download-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: currentColor;
+      }
+
+      .download-title {
+        display: block;
+        font-size: 1rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .download-meta {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.35;
       }
 
       footer {
-        align-items: flex-start;
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        padding: 26px 0 30px;
+        border-top: 1.5px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
       }
 
-      .copyright { text-align: left; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
+      .publisher-logo {
+        width: clamp(170px, 20vw, 230px);
+        max-width: 100%;
+        height: auto;
+        display: block;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="page-shell">
-    <main>
-      <section aria-labelledby="page-title">
-        <p class="edition">SECOND EDITION</p>
-        <h1 id="page-title" aria-label="Paraeducators in Physical Education SECOND EDITION, A Training Guide to Roles and Responsibilities">
-          <span class="title-line title-line--primary">Paraeducators</span>
-          <span class="title-line title-line--secondary">in Physical Education</span>
-          <span class="subtitle">A Training Guide to Roles and Responsibilities</span>
-        </h1>
-        <p class="intro">Resources to support implementation, including materials related to paraeducator responsibilities, special education terminology, disability awareness, and strategies for increasing physical activity. These resources are designed to complement the text and serve as ongoing references for practitioners.</p>
-      </section>
 
-      <aside class="download-panel" aria-label="Downloads">
-        <div class="download-list">
-          <a class="download-card" href="assets/Lieberman2E_Downloadable_Resources.zip" download>
-            <span class="download-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
-              </svg>
-            </span>
-            <span>
-              <span class="download-title">Downloadable resources</span>
-              <span class="download-meta">Appendices, fact sheets, and handouts</span>
-            </span>
-          </a>
+      .copyright {
+        text-align: right;
+      }
 
-          <a class="download-card" href="assets/Lieberman2E__PowerPoints.zip" download>
-            <span class="download-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16v12H4z"></path><path d="M8 20h8"></path><path d="M12 16v4"></path>
-              </svg>
-            </span>
-            <span>
-              <span class="download-title">PowerPoints</span>
-              <span class="download-meta">Download all 9 chapter presentations</span>
-            </span>
-          </a>
+      .copyright a {
+        color: var(--navy);
+        font-weight: 800;
+        text-decoration: underline;
+        text-decoration-color: var(--cyan);
+        text-decoration-thickness: 3px;
+        text-underline-offset: 4px;
+      }
+
+      .copyright a:hover {
+        color: var(--red);
+      }
+
+      .copyright a:focus-visible {
+        outline: 3px solid var(--yellow);
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 820px) {
+        main {
+          grid-template-columns: 1fr;
+          padding-top: 68px;
+        }
+
+        .download-panel {
+          max-width: 560px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .page-shell {
+          width: min(100% - 28px, 1120px);
+        }
+
+        main {
+          padding: 54px 0 50px;
+        }
+
+        h1 {
+          font-size: clamp(3rem, 16vw, 4.6rem);
+        }
+
+        .intro {
+          margin-top: 28px;
+          padding-left: 16px;
+        }
+
+        footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .copyright {
+          text-align: left;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <main>
+        <section aria-labelledby="page-title">
+          <p class="edition">SECOND EDITION</p>
+          <h1 id="page-title" aria-label="Paraeducators in Physical Education SECOND EDITION, A Training Guide to Roles and Responsibilities">
+            <span class="title-line title-line--primary">Paraeducators</span>
+            <span class="title-line title-line--secondary">in Physical Education</span>
+            <span class="subtitle">A Training Guide to Roles and Responsibilities</span>
+          </h1>
+          <p class="intro">
+            Resources to support implementation, including materials related to paraeducator responsibilities, special education terminology, disability awareness, and strategies for increasing
+            physical activity. These resources are designed to complement the text and serve as ongoing references for practitioners.
+          </p>
+        </section>
+
+        <aside class="download-panel" aria-label="Downloads">
+          <div class="download-list">
+            <a class="download-card" href="assets/Lieberman2E_Downloadable_Resources.zip" download>
+              <span class="download-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v12"></path>
+                  <path d="m7 10 5 5 5-5"></path>
+                  <path d="M5 21h14"></path>
+                </svg>
+              </span>
+              <span>
+                <span class="download-title">Downloadable resources</span>
+                <span class="download-meta">Appendices, fact sheets, and handouts</span>
+              </span>
+            </a>
+
+            <a class="download-card" href="assets/Lieberman2E__PowerPoints.zip" download>
+              <span class="download-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16v12H4z"></path>
+                  <path d="M8 20h8"></path>
+                  <path d="M12 16v4"></path>
+                </svg>
+              </span>
+              <span>
+                <span class="download-title">PowerPoints</span>
+                <span class="download-meta">Download all 9 chapter presentations</span>
+              </span>
+            </a>
+          </div>
+        </aside>
+      </main>
+
+      <footer>
+        <img class="publisher-logo" src="assets/HK logo horizontal 4C.png" alt="Human Kinetics" />
+        <div class="copyright">
+          <div>Copyright © 2027 Human Kinetics, Inc.</div>
+          <a href="assets/Lieberman_2E_AWS_WR%20Copyright%20Page%20.docx" download>Download copyright</a>
         </div>
-      </aside>
-    </main>
-
-    <footer>
-      <img class="publisher-logo" src="assets/HK logo horizontal 4C.png" alt="Human Kinetics">
-      <div class="copyright">
-        <div>Copyright © 2027 Human Kinetics, Inc.</div>
-        <a href="assets/Lieberman_2E_AWS_WR%20Copyright%20Page%20.docx" download>Download copyright</a>
-      </div>
-    </footer>
-  </div>
-</body>
+      </footer>
+    </div>
+  </body>
 </html>
